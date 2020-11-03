@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using System.Linq;
 using Archiver.Server.Data;
 using Archiver.Server.Models;
+using Archiver.DataAccess;
 
 namespace Archiver.Server
 {
@@ -41,6 +42,11 @@ namespace Archiver.Server
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
+
+            services.AddDbContextFactory<ContactContext>(opt =>
+                opt.UseSqlServer(
+                    Configuration.GetConnectionString(ContactContext.BlazorContactsDb))
+                .EnableSensitiveDataLogging());
 
             services.AddControllersWithViews();
             services.AddRazorPages();

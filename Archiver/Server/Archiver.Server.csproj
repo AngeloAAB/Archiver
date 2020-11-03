@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Client\Archiver.Client.csproj" />
+    <ProjectReference Include="..\DataAccess\Archiver.DataAccess.csproj" />
     <ProjectReference Include="..\Shared\Archiver.Shared.csproj" />
   </ItemGroup>
 
